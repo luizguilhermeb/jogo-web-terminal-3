@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'Downcome';
+    src: url(fonts/DOWNCOME.TTF) format('truetype');
+}
+
+:root {
+  --color1: #000000;
+  --color2: #ffffff;
+  --color3: #24ff00;
+  --color4: #272727;
+  --color5: #1d1d1d;
+  --color6: #404e3e;
+  --color7: #d9d9d9;
+  --color8: #22ff0026;
+
+  --font-flashy: Downcome;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
+}
+
+#game-title {
+  color: var(--color2);
+  font-family: var(--font-flashy);
+  font-size: 5rem;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+#game-title span {
+  color: var(--color3);
+}
