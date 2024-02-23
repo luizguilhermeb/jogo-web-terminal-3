@@ -1,16 +1,22 @@
-const gameTitleText = "Terminal 3";
+const gameTitleText = "Terminal3";
 const gameTitle = document.querySelector("#game-title");
-let contador = 0;
+let counter = 0;
+
+let audio = new Audio("sounds/strong-digit.mp3");
 
 function typeWriter() {
-  if (contador < gameTitleText.length) {
-    gameTitle.textContent += gameTitleText.charAt(contador);
-    if (gameTitleText.charAt(contador) == "3") {
+  if (counter < gameTitleText.length) {
+    audio.pause();
+    audio.currentTime = 0;
+    gameTitle.textContent += gameTitleText.charAt(counter); // Adiciona a caractere refereniada de gameTitleText
+    audio.play();
+    if (gameTitleText.charAt(counter) == "3") {
+      // Aplica estilo à caractere '3'
       gameTitle.innerHTML = "Terminal <span>3</span>";
     }
-    contador++;
-    setTimeout(typeWriter, 500); // Ajuste o tempo para controlar a velocidade de digitação
+    counter++;
+    setTimeout(typeWriter, 1200); // Ajuste o tempo para controlar a velocidade de digitação
   }
 }
 
-typeWriter();
+setTimeout(typeWriter, 2000);
