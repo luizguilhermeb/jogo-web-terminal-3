@@ -16,6 +16,7 @@
   --color8: #22ff0026;
 
   --font-flashy: Downcome;
+  --font-default: "PT Mono", monospace;
 }
 
 * {
@@ -26,16 +27,79 @@
 
 body {
   background-color: #000000;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 #game-title {
   color: var(--color2);
   font-family: var(--font-flashy);
-  font-size: 5rem;
   text-align: center;
   letter-spacing: 0.1rem;
+
+  font-size: 4.5rem;
+}
+
+@media screen and (min-width: 550px) {
+  #game-title {
+    font-size: 7rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #game-title {
+    font-size: 10rem;
+  }
 }
 
 #game-title span {
   color: var(--color3);
+}
+
+#menu ul {
+  list-style-type: none;
+  color: var(--color2);
+  font-family: var(--font-default);
+  font-size: 2.1875rem;
+  text-align: center;
+}
+
+#menu ul li {
+  margin-bottom: 1rem;
+}
+
+#menu ul li:nth-child(1) {
+  opacity: 0;
+  animation: appear-list-1 1s linear 7s forwards;
+}
+
+@keyframes appear-list-1 {
+  to {
+    opacity: 1;
+  }
+}
+
+#menu ul li:nth-child(2) {
+  opacity: 0;
+  animation: appear-list-2 1s linear 7.3s forwards;
+}
+
+@keyframes appear-list-2 {
+  to {
+    opacity: 1;
+  }
+}
+
+#menu ul li:nth-child(3) {
+  opacity: 0;
+  animation: appear-list-3 1s linear 7.6s forwards;
+}
+
+@keyframes appear-list-3 {
+  to {
+    opacity: 1;
+  }
 }
