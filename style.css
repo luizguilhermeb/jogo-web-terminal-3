@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
 @font-face {
-    font-family: 'Downcome';
-    src: url(fonts/DOWNCOME.TTF) format('truetype');
+  font-family: "Downcome";
+  src: url(fonts/DOWNCOME.TTF) format("truetype");
 }
 
 :root {
