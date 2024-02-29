@@ -4,9 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Terminal 3</title>
-    <link rel="stylesheet" href="css/geral/geral.css" />
-    <link rel="stylesheet" href="css/home/home.css" />
+    <link rel="stylesheet" href="style.css" />
+
     <script src="script.js" defer></script>
+    <script
+      src="https://kit.fontawesome.com/07531f85f9.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
 
     <link rel="preload" href="fonts/DOWNCOME.TTF" as="font" type="font/ttf" />
     <!-- @font-face: 'Downcome' (preload) -->
@@ -24,11 +29,33 @@
 
       <nav id="menu">
         <ul>
-          <li>Jogar</li>
-          <li>Créditos</li>
-          <li>Licença</li>
+          <li id="play-link">Jogar</li>
+          <li id="credits-link">Créditos</li>
+          <li id="license-link">Licença</li>
         </ul>
       </nav>
     </header>
+
+    <footer>
+      <section id="credits">
+        <div>
+          <h1>Créditos</h1>
+          <button id="back-button" onclick="back()">
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+
+        <p>
+          100% made by
+          <a
+            href="https://luizguilhermeb.netlify.app"
+            target="_blank"
+            rel="author"
+            >Luiz Guilherme</a
+          >
+        </p>
+        <div id="luiz-img"></div>
+      </section>
+    </footer>
   </body>
 </html>
