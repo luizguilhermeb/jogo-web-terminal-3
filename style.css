@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Downcome";
-  src: url(fonts/downcome.ttf) format("truetype");
+  src: url(../jogo-web-terminal-3/fonts/downcome.ttf) format("truetype");
 }
 
 :root {
