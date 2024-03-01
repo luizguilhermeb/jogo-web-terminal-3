@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Downcome";
-  src: url(fonts/DOWNCOME.TTF) format("truetype");
+  src: url("fonts/DOWNCOME.TTF") format("font/ttf"), url("fonts/DOWNCOME.otf") format("font/otf"), url("fonts/DOWNCOME.woff") format("font/woff");
 }
 
 :root {
@@ -13,7 +13,7 @@
   --color5: #1d1d1d;
   --color6: #404e3e;
 
-  --font-flashy: Downcome;
+  --font-flashy: "Downcome";
   --font-default: "PT Mono", monospace;
 }
 
