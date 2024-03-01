@@ -20,20 +20,20 @@ setTimeout(typeWriter, 1500);
 
 // === Functions from credits page ===
 
-credits = document.querySelector('#credits')
-creditsLink = document.querySelector('#credits-link')
-buttonBack = document.querySelector('#back-button')
+credits = document.querySelector("#credits");
+creditsLink = document.querySelector("#credits-link");
+buttonBack = document.querySelector("#back-button");
 
 function openCredits() {
-  credits.style.visibility = 'visible';
-  credits.style.opacity = '1';
+  credits.style.visibility = "visible";
+  credits.style.opacity = "1";
 }
-creditsLink.addEventListener('click', openCredits)
+creditsLink.addEventListener("click", openCredits);
 
 function closeCredits() {
-  credits.style.opacity = '0';
-  setTimeout(function() {
-    credits.style.visibility = 'hidden';
+  credits.style.opacity = "0";
+  setTimeout(function () {
+    credits.style.visibility = "hidden";
   }, 700);
 }
-buttonBack.addEventListener('click', closeCredits)
+buttonBack.addEventListener("click", closeCredits);
