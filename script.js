@@ -32,7 +32,7 @@ setTimeout(enableLinks, 6000);
 
 credits = document.querySelector("#credits");
 creditsLink = document.querySelector("#credits-link");
-buttonBack = document.querySelector("#back-button");
+buttonBackCredits = document.querySelector("#back-button-credits");
 
 function openCredits() {
   credits.style.visibility = "visible";
@@ -44,6 +44,26 @@ function closeCredits() {
   credits.style.opacity = "0";
   setTimeout(function () {
     credits.style.visibility = "hidden";
-  }, 700);
+  }, 500);
 }
-buttonBack.addEventListener("click", closeCredits);
+buttonBackCredits.addEventListener("click", closeCredits);
+
+// === Functions from license page ===
+
+license = document.querySelector("#license");
+licenseLink = document.querySelector("#license-link");
+buttonBackLicense = document.querySelector("#back-button-license");
+
+function openLicense() {
+  license.style.visibility = "visible";
+  license.style.opacity = "1";
+}
+licenseLink.addEventListener("click", openLicense);
+
+function closeLicense() {
+  license.style.opacity = "0";
+  setTimeout(function () {
+    license.style.visibility = "hidden";
+  }, 500);
+}
+buttonBackLicense.addEventListener("click", closeLicense);
