@@ -16,7 +16,17 @@ function typeWriter() {
   }
 }
 
+const linkMenu = document.querySelectorAll(".link-menu");
+
+function enableLinks() {
+  linkMenu.forEach((linkMenu) => {
+    linkMenu.style.pointerEvents = "auto";
+    linkMenu.style.cursor = "pointer";
+  });
+}
+
 setTimeout(typeWriter, 1500);
+setTimeout(enableLinks, 6000);
 
 // === Functions from credits page ===
 

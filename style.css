@@ -7,6 +7,7 @@
   --color4: #272727;
   --color5: #1d1d1d;
   --color6: #404e3e;
+  --color7: #c2c2c2;
 
   --font-flashy: "Sixtyfour", sans-serif;
   --font-default: "PT Mono", monospace;
@@ -45,6 +46,13 @@ header {
   font-size: 2.4rem;
 }
 
+@media screen and (min-width: 440px) {
+  #game-title {
+    font-size: 3.2rem;
+    line-height: 5rem;
+  }
+}
+
 @media screen and (min-width: 550px) {
   #game-title {
     font-size: 4.4rem;
@@ -52,7 +60,7 @@ header {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 860px) {
   #game-title {
     font-size: 5.5rem;
     line-height: 9rem;
@@ -61,6 +69,7 @@ header {
 }
 
 #game-title span {
+  display: block;
   color: var(--color3);
 }
 
@@ -72,9 +81,14 @@ header {
   text-align: center;
 }
 
-#menu ul li {
+.link-menu {
   margin-bottom: 1rem;
-  cursor: pointer;
+
+  pointer-events: none;
+}
+
+#menu ul li:hover {
+  color: var(--color7);
 }
 
 #menu ul li:nth-child(1) {
