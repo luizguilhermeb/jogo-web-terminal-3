@@ -270,3 +270,33 @@ header {
 #container-content-license ol {
   padding: 1.5rem;
 }
+
+/* === Game Style === */
+
+#game-content {
+  background-color: var(--color1);
+  font-family: var(--font-default);
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100dvh;
+}
+
+#game-content p {
+  font-size: 1.25rem;
+  text-align: center;
+  color: var(--color2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -400%);
+}
+
+#game-content i {
+  font-size: 2.5rem;
+  color: var(--color3);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
