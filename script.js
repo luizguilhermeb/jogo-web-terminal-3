@@ -1,3 +1,29 @@
+// === Soundtrack Option ===
+
+const soudtrackSection = document.querySelector("#soundtrack-option");
+const soundtrack = new Audio("sounds/soundtrack.mp3");
+
+function soudtrackOn() {
+  soundtrack.play();
+  soundtrack.volume = 0.6;
+}
+
+function closeSoundtrackWindow() {
+  soudtrackSection.style.opacity = "0";
+  setTimeout((soudtrackSection.style.visibility = "hidden"), 1000);
+}
+
+soundtrackOptionOn = document.querySelector("#soundtrack-option-on");
+soundtrackOptionOn.addEventListener("click", function () {
+  soudtrackOn();
+  closeSoundtrackWindow();
+});
+
+soundtrackOptionOff = document.querySelector("#soundtrack-option-off");
+soundtrackOptionOff.addEventListener("click", function () {
+  closeSoundtrackWindow();
+});
+
 // === texto-animation from home ===
 
 const gameTitleText = "Terminal3";
@@ -12,7 +38,7 @@ function typeWriter() {
       gameTitle.innerHTML = "Terminal <span>3</span>";
     }
     counter++;
-    setTimeout(typeWriter, 500); // Ajuste o tempo para controlar a velocidade de digitação
+    setTimeout(typeWriter, 700); // Ajuste o tempo para controlar a velocidade de digitação
   }
 }
 
@@ -25,8 +51,33 @@ function enableLinks() {
   });
 }
 
-setTimeout(typeWriter, 1500);
-setTimeout(enableLinks, 6000);
+soundtrackOptionOn.addEventListener("click", function (){
+  setTimeout(typeWriter, 1500)
+  setTimeout(function () {
+    linkMenu[0].style.opacity = 1
+  }, 9500)
+  setTimeout(function () {
+    linkMenu[1].style.opacity = 1
+  }, 9800)
+  setTimeout(function () {
+    linkMenu[2].style.opacity = 1
+    enableLinks()
+  }, 10100)
+});
+
+soundtrackOptionOff.addEventListener("click", function (){
+  setTimeout(typeWriter, 2000)
+  setTimeout(function () {
+    linkMenu[0].style.opacity = 1
+  }, 9500)
+  setTimeout(function () {
+    linkMenu[1].style.opacity = 1
+  }, 9800)
+  setTimeout(function () {
+    linkMenu[2].style.opacity = 1
+    enableLinks()
+  }, 10100)
+});
 
 // === Functions from credits page ===
 
