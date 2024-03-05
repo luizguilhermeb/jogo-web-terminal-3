@@ -1,12 +1,29 @@
 // === Soundtrack Option ===
 
 const soudtrackSection = document.querySelector("#soundtrack-option");
-const soundtrack = new Audio("sounds/soundtrack.mp3");
+const soundtrackPlaylist = [
+  "sounds/soundtrack/soundtrack-1.mp3",
+  "sounds/soundtrack/soundtrack-2.mp3",
+  "sounds/soundtrack/soundtrack-3.mp3",
+];
+let soundCounter = 0;
+let soundtrackPlayer = new Audio(soundtrackPlaylist[soundCounter]);
 
 function soudtrackOn() {
-  soundtrack.play();
-  soundtrack.volume = 0.6;
+  soundtrackPlayer.play();
+  soundtrackPlayer.volume = 0.5;
 }
+
+soundtrackPlayer.addEventListener('ended', function () {
+  soundCounter++
+  if (soundCounter == 3) {
+    soundCounter = 0
+  }
+
+  soundtrackPlayer.src = soundtrackPlaylist[soundCounter]
+  soundtrackPlayer.play()
+  soundtrackPlayer.volume = 0.5;
+})
 
 function closeSoundtrackWindow() {
   soudtrackSection.style.opacity = "0";
@@ -51,32 +68,35 @@ function enableLinks() {
   });
 }
 
-soundtrackOptionOn.addEventListener("click", function (){
-  setTimeout(typeWriter, 1500)
+soundtrackOptionOn.addEventListener("click", function () {
+  linkMenu.forEach((linkMenu) => {
+    linkMenu.style.opacity = '0.01'
+  });
+  setTimeout(typeWriter, 1500);
   setTimeout(function () {
-    linkMenu[0].style.opacity = 1
-  }, 9500)
+    linkMenu[0].style.opacity = 1;
+  }, 9500);
   setTimeout(function () {
-    linkMenu[1].style.opacity = 1
-  }, 9800)
+    linkMenu[1].style.opacity = 1;
+  }, 9800);
   setTimeout(function () {
-    linkMenu[2].style.opacity = 1
-    enableLinks()
-  }, 10100)
+    linkMenu[2].style.opacity = 1;
+    enableLinks();
+  }, 10100);
 });
 
-soundtrackOptionOff.addEventListener("click", function (){
-  setTimeout(typeWriter, 2000)
+soundtrackOptionOff.addEventListener("click", function () {
+  setTimeout(typeWriter, 2000);
   setTimeout(function () {
-    linkMenu[0].style.opacity = 1
-  }, 9500)
+    linkMenu[0].style.opacity = 1;
+  }, 9200);
   setTimeout(function () {
-    linkMenu[1].style.opacity = 1
-  }, 9800)
+    linkMenu[1].style.opacity = 1;
+  }, 9500);
   setTimeout(function () {
-    linkMenu[2].style.opacity = 1
-    enableLinks()
-  }, 10100)
+    linkMenu[2].style.opacity = 1;
+    enableLinks();
+  }, 9800);
 });
 
 // === Functions from credits page ===
