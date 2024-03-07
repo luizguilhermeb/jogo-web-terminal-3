@@ -80,7 +80,12 @@ header {
 
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-evenly;
+}
+
+#game-title-acessible {
+  opacity: 0;
+  font-size: 0rem;
 }
 
 #game-title {

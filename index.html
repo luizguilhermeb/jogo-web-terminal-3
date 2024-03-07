@@ -28,16 +28,29 @@
       <div></div>
     </section>
 
-    <header>
-      <h1 id="game-title" class="sixtyfour"></h1>
+    <header aria-hidden="true">
+      <h1 id="game-title" aria-hidden="true"></h1>
+
+      <!-- title for screen writers -->
+      <h1 id="game-title-acessible">Terminal 3</h1>
 
       <nav id="menu">
         <ul>
           <li>
-            <button class="link-menu" id="play-link">Jogar</button>
+            <button tabindex="-1" class="link-menu" id="play-link">
+              Jogar
+            </button>
           </li>
-          <li><button class="link-menu" id="credits-link">Créditos</button></li>
-          <li><button class="link-menu" id="license-link">Licença</button></li>
+          <li>
+            <button tabindex="-1" class="link-menu" id="credits-link">
+              Créditos
+            </button>
+          </li>
+          <li>
+            <button tabindex="-1" class="link-menu" id="license-link">
+              Licença
+            </button>
+          </li>
         </ul>
       </nav>
     </header>
