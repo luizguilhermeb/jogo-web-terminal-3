@@ -1,6 +1,5 @@
 // === Soundtrack Option ===
 
-const soudtrackSection = document.querySelector("#soundtrack-option");
 const soundtrackPlaylist = [
   "sounds/soundtrack/soundtrack-1.mp3",
   "sounds/soundtrack/soundtrack-2.mp3",
@@ -9,12 +8,7 @@ const soundtrackPlaylist = [
 let soundCounter = 0;
 let soundtrackPlayer = new Audio(soundtrackPlaylist[soundCounter]);
 
-function soudtrackOn() {
-  soundtrackPlayer.play();
-  soundtrackPlayer.volume = 0.5;
-}
-
-soundtrackPlayer.addEventListener("ended", function () {
+function changeSoundtrack() {
   soundCounter++;
   if (soundCounter == 3) {
     soundCounter = 0;
@@ -28,36 +22,56 @@ soundtrackPlayer.addEventListener("ended", function () {
   } else {
     soundtrackPlayer.volume = 0.5;
   }
-});
-
-function closeSoundtrackWindow() {
-  soudtrackSection.style.opacity = "0";
-  setTimeout((soudtrackSection.style.visibility = "hidden"), 1000);
 }
 
-soundtrackOptionOn = document.querySelector("#soundtrack-option-on");
-soundtrackOptionOn.addEventListener("click", function () {
-  soudtrackOn();
-  closeSoundtrackWindow();
-});
+soundtrackPlayer.addEventListener("ended", changeSoundtrack);
 
-soundtrackOptionOff = document.querySelector("#soundtrack-option-off");
-soundtrackOptionOff.addEventListener("click", function () {
-  closeSoundtrackWindow();
-});
+// Sound Button
+
+const clickSound = new Audio("sounds/sound-effects/click.mp3");
+
+function clickSoundFunction() {
+  clickSound.pause()
+  clickSound.currentTime = 0
+  clickSound.volume = 0.5
+  clickSound.play()
+}
+
+const soundButton = document.querySelector("#sound-button");
+const soundButtonPath = document.querySelector("#sound-button svg path");
+const svgOnSound =
+  "M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM412.6 181.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5z";
+const svgOffSound =
+  "M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z";
+
+
+function changeSoundState() {
+  clickSoundFunction()
+  if (soundButtonPath.getAttribute("d") == svgOnSound) {
+    soundButtonPath.setAttribute("d", svgOffSound);
+    soundtrackPlayer.pause();
+    soundButton.setAttribute('aria-label', 'Ativar trilha sonora')
+  } else {
+    soundButtonPath.setAttribute("d", svgOnSound);
+    soundtrackPlayer.play();
+    soundButton.setAttribute('aria-label', 'Desativar trilha sonora')
+  }
+}
+
+soundButton.addEventListener("click", changeSoundState);
 
 // === Home ===
 
 const gameTitleText = "Terminal3";
-const gameTitle = document.querySelector("#game-title");
+const gameTitleElement = document.querySelector("#game-title");
 let counter = 0;
 
 function typeWriter() {
   if (counter < gameTitleText.length) {
-    gameTitle.textContent += gameTitleText.charAt(counter); // Adiciona a caractere refereniada de gameTitleText
+    gameTitleElement.textContent += gameTitleText.charAt(counter); // Adiciona a caractere refereniada de gameTitleText
     if (gameTitleText.charAt(counter) == "3") {
       // Aplica estilo à caractere '3'
-      gameTitle.innerHTML = "Terminal <span>3</span>";
+      gameTitleElement.innerHTML = "Terminal <span>3</span>";
     }
     counter++;
     setTimeout(typeWriter, 700); // Ajuste o tempo para controlar a velocidade de digitação
@@ -65,52 +79,41 @@ function typeWriter() {
 }
 
 const linkMenu = document.querySelectorAll(".link-menu");
-const menu = document.querySelector("#menu");
-const clickSound = new Audio("sounds/sound-effects/click.mp3");
 
-// click sound for mouseover
-linkMenu.forEach((linkMenu) => {
-  linkMenu.addEventListener("mouseover", function () {
-    clickSound.volume = 0.5;
-    clickSound.pause();
-    clickSound.currentTime = 0;
-    clickSound.play();
-  });
-});
+const soudtrackSection = document.querySelector("#soundtrack-section");
 
-function enableLinks() {
+function closeSoundtrackSection() {
+  soudtrackSection.style.opacity = "0";
+  setTimeout((soudtrackSection.style.visibility = "hidden"), 1000);
+}
+
+function enableLinksHome() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.style.pointerEvents = "auto";
     linkMenu.style.cursor = "pointer";
   });
+  soundButton.style.pointerEvents = "auto";
+  soundButton.style.cursor = "pointer";
 }
 
-const header = document.querySelector('header')
+const header = document.querySelector("header");
+const aside = document.querySelector('aside')
+
+const soundtrackOptionOn = document.querySelector("#soundtrack-option-on");
 
 soundtrackOptionOn.addEventListener("click", function () {
-  linkMenu.forEach((linkMenu) => {
-    linkMenu.tabIndex = "0";
-  });
-  header.ariaHidden = 'false';
+  clickSoundFunction()
+  closeSoundtrackSection();
+  soundButtonPath.setAttribute(
+    "d",
+    "M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM412.6 181.5C434.1 199.1 448 225.9 448 256s-13.9 56.9-35.4 74.5c-10.3 8.4-25.4 6.8-33.8-3.5s-6.8-25.4 3.5-33.8C393.1 284.4 400 271 400 256s-6.9-28.4-17.7-37.3c-10.3-8.4-11.8-23.5-3.5-33.8s23.5-11.8 33.8-3.5z"
+  );
+  soundtrackPlayer.play();
+  soundtrackPlayer.volume = 0.5;
+  soundButton.setAttribute('aria-label', 'Desativar trilha sonora')
+  header.style.visibility = 'visible'
+  aside.style.visibility = 'visible'
   setTimeout(typeWriter, 1500);
-  setTimeout(function () {
-    linkMenu[0].style.opacity = 1;
-  }, 9500);
-  setTimeout(function () {
-    linkMenu[1].style.opacity = 1;
-  }, 9800);
-  setTimeout(function () {
-    linkMenu[2].style.opacity = 1;
-    enableLinks();
-  }, 10100);
-});
-
-soundtrackOptionOff.addEventListener("click", function () {
-  linkMenu.forEach((linkMenu) => {
-    linkMenu.tabIndex = "0";
-  });
-  header.ariaHidden = 'false';
-  setTimeout(typeWriter, 2000);
   setTimeout(function () {
     linkMenu[0].style.opacity = 1;
   }, 9200);
@@ -119,8 +122,46 @@ soundtrackOptionOff.addEventListener("click", function () {
   }, 9500);
   setTimeout(function () {
     linkMenu[2].style.opacity = 1;
-    enableLinks();
+    enableLinksHome();
   }, 9800);
+  setTimeout(function () {
+    soundButton.style.opacity = "1";
+  }, 10100);
+});
+
+const soundtrackOptionOff = document.querySelector("#soundtrack-option-off");
+
+soundtrackOptionOff.addEventListener("click", function () {
+  clickSoundFunction()
+  closeSoundtrackSection();
+  soundButtonPath.setAttribute(
+    "d",
+    "M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"
+  );
+  soundButton.setAttribute('aria-label', 'Ativar trilha sonora')
+  header.style.visibility = 'visible'
+  aside.style.visibility = 'visible'
+  setTimeout(typeWriter, 1500);
+  setTimeout(function () {
+    linkMenu[0].style.opacity = 1;
+  }, 9200);
+  setTimeout(function () {
+    linkMenu[1].style.opacity = 1;
+  }, 9500);
+  setTimeout(function () {
+    linkMenu[2].style.opacity = 1;
+    enableLinksHome();
+  }, 9800);
+  setTimeout(function () {
+    soundButton.style.opacity = "1";
+  }, 10100);
+});
+
+// click sound for click in link menu
+linkMenu.forEach((linkMenu) => {
+  linkMenu.addEventListener("click", function () {
+    clickSoundFunction()
+  });
 });
 
 // === Credits page ===
@@ -128,8 +169,8 @@ soundtrackOptionOff.addEventListener("click", function () {
 backButton = document.querySelectorAll(".back-button");
 
 backButton.forEach((backButton) => {
-  backButton.addEventListener("mouseover", function () {
-    clickSound.play();
+  backButton.addEventListener("click", function () {
+    clickSoundFunction()
   });
 });
 
@@ -141,7 +182,7 @@ function openCredits() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "-1";
   });
-  header.ariaHidden = 'true';
+  header.ariaHidden = "true";
   credits.style.visibility = "visible";
   credits.style.opacity = "1";
 }
@@ -151,7 +192,7 @@ function closeCredits() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "0";
   });
-  header.ariaHidden = 'false';
+  header.ariaHidden = "false";
   credits.style.opacity = "0";
   setTimeout(function () {
     credits.style.visibility = "hidden";
@@ -169,7 +210,7 @@ function openLicense() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "-1";
   });
-  header.ariaHidden = 'true';
+  header.ariaHidden = "true";
   license.style.visibility = "visible";
   license.style.opacity = "1";
 }
@@ -179,7 +220,7 @@ function closeLicense() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "0";
   });
-  header.ariaHidden = 'false';
+  header.ariaHidden = "false";
   license.style.opacity = "0";
   setTimeout(function () {
     license.style.visibility = "hidden";

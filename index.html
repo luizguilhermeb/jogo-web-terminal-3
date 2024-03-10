@@ -9,6 +9,7 @@
 
     <script src="script.js" defer></script>
 
+    <!-- preconnect fonts: Sixtyfour, PT Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,37 +18,51 @@
     />
   </head>
   <body>
-    <section id="soundtrack-option">
-      <p>Ativar trilha sonora?</p>
+    <section id="soundtrack-section">
+      <span>Ativar trilha sonora?</span>
 
       <div>
-        <button id="soundtrack-option-on">Sim</button>
-        <button id="soundtrack-option-off">Não</button>
+        <button aria-label="Ativar trilha sonora" id="soundtrack-option-on">
+          Sim
+        </button>
+        <button
+          aria-label="Não ativar trilha sonora"
+          id="soundtrack-option-off"
+        >
+          Não
+        </button>
       </div>
-
-      <div></div>
     </section>
 
-    <header aria-hidden="true">
-      <h1 id="game-title" aria-hidden="true"></h1>
-
-      <!-- title for screen writers -->
-      <h1 id="game-title-acessible">Terminal 3</h1>
+    <header>
+      <h1 id="game-title" aria-label="Terminal 3"></h1>
 
       <nav id="menu">
         <ul>
           <li>
-            <button tabindex="-1" class="link-menu" id="play-link">
+            <button
+              aria-label="jogar"
+              class="link-menu"
+              id="play-link"
+            >
               Jogar
             </button>
           </li>
           <li>
-            <button tabindex="-1" class="link-menu" id="credits-link">
+            <button
+              aria-label="abrir aba de créditos"
+              class="link-menu"
+              id="credits-link"
+            >
               Créditos
             </button>
           </li>
           <li>
-            <button tabindex="-1" class="link-menu" id="license-link">
+            <button
+              aria-label="abrir aba de licença"
+              class="link-menu"
+              id="license-link"
+            >
               Licença
             </button>
           </li>
@@ -56,7 +71,7 @@
     </header>
 
     <main id="game-content">
-      <p>Conectando ao universo</p>
+      <span>Conectando ao universo</span>
 
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
         <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
@@ -70,7 +85,11 @@
       <section id="credits">
         <div>
           <h1>Créditos</h1>
-          <button class="back-button" id="back-button-credits">
+          <button
+            aria-label="voltar para o início"
+            class="back-button"
+            id="back-button-credits"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
               <path
@@ -95,7 +114,11 @@
       <section id="license">
         <div id="container-menu-license">
           <h1>Licença</h1>
-          <button class="back-button" id="back-button-license">
+          <button
+            aria-label="voltar para o início"
+            class="back-button"
+            id="back-button-license"
+          >
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
               <path
@@ -114,7 +137,10 @@
               <p>You are authorized to:</p>
               <ol>
                 <li>
-                  Play and access the game for personal and commercial purposes.
+                  <p>
+                    Play and access the game for personal and commercial
+                    purposes.
+                  </p>
                 </li>
               </ol>
             </li>
@@ -122,8 +148,10 @@
               <p>You are NOT authorized to:</p>
               <ol>
                 <li>
-                  Copy, modify or distribute the game or any part of it without
-                  express written permission.
+                  <p>
+                    Copy, modify or distribute the game or any part of it
+                    without express written permission.
+                  </p>
                 </li>
               </ol>
             </li>
@@ -136,5 +164,14 @@
         </div>
       </section>
     </footer>
+
+    <aside>
+      <button id="sound-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+          <!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+          <path d="" />
+        </svg>
+      </button>
+    </aside>
   </body>
 </html>
