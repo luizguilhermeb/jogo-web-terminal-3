@@ -71,7 +71,7 @@ function typeWriter() {
     gameTitleElement.textContent += gameTitleText.charAt(counter); // Adiciona a caractere refereniada de gameTitleText
     if (gameTitleText.charAt(counter) == "3") {
       // Aplica estilo à caractere '3'
-      gameTitleElement.innerHTML = "Terminal <span>3</span>";
+      gameTitleElement.innerHTML = "Terminal <div>3</div>";
     }
     counter++;
     setTimeout(typeWriter, 700); // Ajuste o tempo para controlar a velocidade de digitação
@@ -164,8 +164,6 @@ linkMenu.forEach((linkMenu) => {
   });
 });
 
-// === Credits page ===
-
 backButton = document.querySelectorAll(".back-button");
 
 backButton.forEach((backButton) => {
@@ -173,6 +171,8 @@ backButton.forEach((backButton) => {
     clickSoundFunction()
   });
 });
+
+// === Credits page ===
 
 credits = document.querySelector("#credits");
 creditsLink = document.querySelector("#credits-link");
@@ -182,7 +182,7 @@ function openCredits() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "-1";
   });
-  header.ariaHidden = "true";
+  header.setAttribute('aria-hidden', 'true')
   credits.style.visibility = "visible";
   credits.style.opacity = "1";
 }
@@ -192,7 +192,7 @@ function closeCredits() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "0";
   });
-  header.ariaHidden = "false";
+  header.setAttribute('aria-hidden', 'false')
   credits.style.opacity = "0";
   setTimeout(function () {
     credits.style.visibility = "hidden";
@@ -210,7 +210,7 @@ function openLicense() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "-1";
   });
-  header.ariaHidden = "true";
+  header.setAttribute('aria-hidden', 'true')
   license.style.visibility = "visible";
   license.style.opacity = "1";
 }
@@ -220,7 +220,7 @@ function closeLicense() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "0";
   });
-  header.ariaHidden = "false";
+  header.setAttribute('aria-hidden', 'false')
   license.style.opacity = "0";
   setTimeout(function () {
     license.style.visibility = "hidden";

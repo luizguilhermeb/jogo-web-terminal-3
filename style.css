@@ -9,6 +9,7 @@
   --color6: #404e3e;
   --color7: #c2c2c2;
   --color8: #000000f7;
+  --color9: #ffffff0c;
 
   --font-flashy: "Sixtyfour", sans-serif;
   --font-default: "PT Mono", monospace;
@@ -20,6 +21,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  background-color: #000000;
 }
 
 /* Soundtrack Option Style */
@@ -45,7 +50,7 @@
   font-family: var(--font-default);
   font-size: 1.5rem;
   color: var(--color2);
-  text-align: center;
+  text-align: center; /* mobile centralization */
 }
 
 #soundtrack-section div {
@@ -95,10 +100,6 @@ aside {
 
 /* === Home Style === */
 
-body {
-  background-color: #000000;
-}
-
 header {
   visibility: hidden;
   height: 100dvh;
@@ -141,8 +142,7 @@ header {
   }
 }
 
-#game-title span {
-  display: block;
+#game-title div {
   color: var(--color3);
 }
 
@@ -173,6 +173,25 @@ header {
   color: var(--color7);
 }
 
+/* Credits and License */
+
+.back-button {
+  cursor: pointer;
+  border: none;
+  background-color: var(--color8);
+  transition: 0.3s;
+}
+
+.back-button svg {
+  fill: var(--color3);
+  width: 2.7rem;
+  height: 2.7rem;
+}
+
+.back-button:hover {
+  transform: translateX(-10px);
+}
+
 /* === Credits Style === */
 
 #credits {
@@ -181,7 +200,7 @@ header {
   transition: 0.5s;
 
   background-color: var(--color8);
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 100dvh;
@@ -201,29 +220,12 @@ header {
   font-size: 1.7rem;
 }
 
-.back-button {
-  cursor: pointer;
-  border: none;
-  background-color: var(--color8);
-  transition: 0.3s;
-}
-
-.back-button svg {
-  fill: var(--color3);
-  width: 2.7rem;
-  height: 2.7rem;
-}
-
-.back-button:hover {
-  transform: translateX(-10px);
-}
-
 #credits p {
   font-size: 1.5rem;
   width: 90vw;
   text-align: center;
 
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -244,7 +246,7 @@ header {
   height: 378px;
   background-image: url(imgs/img-luiz/img-luiz-small.png);
 
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
@@ -277,7 +279,7 @@ header {
   background-color: var(--color8);
   color: var(--color2);
 
-  position: absolute;
+  position: fixed;
   top: 0;
   height: 100dvh;
   width: 100vw;
@@ -291,7 +293,7 @@ header {
 }
 
 #container-content-license {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -329,29 +331,28 @@ header {
 
 #game-content {
   visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 4rem;
+  padding: 1rem;
+
   background-color: var(--color1);
   font-family: var(--font-default);
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 100vw;
   height: 100dvh;
 }
 
 #game-content span {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   text-align: center;
   color: var(--color2);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -400%);
 }
 
 #game-content svg {
   width: 2.5rem;
   fill: var(--color3);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
