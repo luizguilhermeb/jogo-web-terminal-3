@@ -49,7 +49,7 @@ body {
 #soundtrack-section span {
   font-family: var(--font-default);
   font-size: 1.5rem;
-  color: var(--color2);
+  color: var(--color3);
   text-align: center; /* mobile centralization */
 }
 
