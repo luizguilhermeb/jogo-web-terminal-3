@@ -31,10 +31,10 @@ soundtrackPlayer.addEventListener("ended", changeSoundtrack);
 const clickSound = new Audio("sounds/sound-effects/click.mp3");
 
 function clickSoundFunction() {
-  clickSound.pause()
-  clickSound.currentTime = 0
-  clickSound.volume = 0.5
-  clickSound.play()
+  clickSound.pause();
+  clickSound.currentTime = 0;
+  clickSound.volume = 0.5;
+  clickSound.play();
 }
 
 const soundButton = document.querySelector("#sound-button");
@@ -44,17 +44,16 @@ const svgOnSound =
 const svgOffSound =
   "M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z";
 
-
 function changeSoundState() {
-  clickSoundFunction()
+  clickSoundFunction();
   if (soundButtonPath.getAttribute("d") == svgOnSound) {
     soundButtonPath.setAttribute("d", svgOffSound);
     soundtrackPlayer.pause();
-    soundButton.setAttribute('aria-label', 'Ativar trilha sonora')
+    soundButton.setAttribute("aria-label", "Ativar trilha sonora");
   } else {
     soundButtonPath.setAttribute("d", svgOnSound);
     soundtrackPlayer.play();
-    soundButton.setAttribute('aria-label', 'Desativar trilha sonora')
+    soundButton.setAttribute("aria-label", "Desativar trilha sonora");
   }
 }
 
@@ -71,7 +70,7 @@ function typeWriter() {
     gameTitleElement.textContent += gameTitleText.charAt(counter); // Adiciona a caractere refereniada de gameTitleText
     if (gameTitleText.charAt(counter) == "3") {
       // Aplica estilo à caractere '3'
-      gameTitleElement.innerHTML = "Terminal <div>3</div>";
+      gameTitleElement.innerHTML = "Terminal <span>3</span>";
     }
     counter++;
     setTimeout(typeWriter, 700); // Ajuste o tempo para controlar a velocidade de digitação
@@ -97,12 +96,12 @@ function enableLinksHome() {
 }
 
 const header = document.querySelector("header");
-const aside = document.querySelector('aside')
+const aside = document.querySelector("aside");
 
 const soundtrackOptionOn = document.querySelector("#soundtrack-option-on");
 
 soundtrackOptionOn.addEventListener("click", function () {
-  clickSoundFunction()
+  clickSoundFunction();
   closeSoundtrackSection();
   soundButtonPath.setAttribute(
     "d",
@@ -110,9 +109,9 @@ soundtrackOptionOn.addEventListener("click", function () {
   );
   soundtrackPlayer.play();
   soundtrackPlayer.volume = 0.5;
-  soundButton.setAttribute('aria-label', 'Desativar trilha sonora')
-  header.style.visibility = 'visible'
-  aside.style.visibility = 'visible'
+  soundButton.setAttribute("aria-label", "Desativar trilha sonora");
+  header.style.visibility = "visible";
+  aside.style.visibility = "visible";
   setTimeout(typeWriter, 1500);
   setTimeout(function () {
     linkMenu[0].style.opacity = 1;
@@ -132,15 +131,15 @@ soundtrackOptionOn.addEventListener("click", function () {
 const soundtrackOptionOff = document.querySelector("#soundtrack-option-off");
 
 soundtrackOptionOff.addEventListener("click", function () {
-  clickSoundFunction()
+  clickSoundFunction();
   closeSoundtrackSection();
   soundButtonPath.setAttribute(
     "d",
     "M301.1 34.8C312.6 40 320 51.4 320 64V448c0 12.6-7.4 24-18.9 29.2s-25 3.1-34.4-5.3L131.8 352H64c-35.3 0-64-28.7-64-64V224c0-35.3 28.7-64 64-64h67.8L266.7 40.1c9.4-8.4 22.9-10.4 34.4-5.3zM425 167l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0z"
   );
-  soundButton.setAttribute('aria-label', 'Ativar trilha sonora')
-  header.style.visibility = 'visible'
-  aside.style.visibility = 'visible'
+  soundButton.setAttribute("aria-label", "Ativar trilha sonora");
+  header.style.visibility = "visible";
+  aside.style.visibility = "visible";
   setTimeout(typeWriter, 1500);
   setTimeout(function () {
     linkMenu[0].style.opacity = 1;
@@ -160,7 +159,7 @@ soundtrackOptionOff.addEventListener("click", function () {
 // click sound for click in link menu
 linkMenu.forEach((linkMenu) => {
   linkMenu.addEventListener("click", function () {
-    clickSoundFunction()
+    clickSoundFunction();
   });
 });
 
@@ -168,7 +167,7 @@ backButton = document.querySelectorAll(".back-button");
 
 backButton.forEach((backButton) => {
   backButton.addEventListener("click", function () {
-    clickSoundFunction()
+    clickSoundFunction();
   });
 });
 
@@ -182,7 +181,7 @@ function openCredits() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "-1";
   });
-  header.setAttribute('aria-hidden', 'true')
+  header.setAttribute("aria-hidden", "true");
   credits.style.visibility = "visible";
   credits.style.opacity = "1";
 }
@@ -192,7 +191,7 @@ function closeCredits() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "0";
   });
-  header.setAttribute('aria-hidden', 'false')
+  header.setAttribute("aria-hidden", "false");
   credits.style.opacity = "0";
   setTimeout(function () {
     credits.style.visibility = "hidden";
@@ -210,7 +209,7 @@ function openLicense() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "-1";
   });
-  header.setAttribute('aria-hidden', 'true')
+  header.setAttribute("aria-hidden", "true");
   license.style.visibility = "visible";
   license.style.opacity = "1";
 }
@@ -220,10 +219,64 @@ function closeLicense() {
   linkMenu.forEach((linkMenu) => {
     linkMenu.tabIndex = "0";
   });
-  header.setAttribute('aria-hidden', 'false')
+  header.setAttribute("aria-hidden", "false");
   license.style.opacity = "0";
   setTimeout(function () {
     license.style.visibility = "hidden";
   }, 500);
 }
 buttonBackLicense.addEventListener("click", closeLicense);
+
+// Game
+
+const randomCharactersElement = document.querySelector("#game-content p span");
+const randomCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+let randomCharactersFinish = "";
+let randomCharactersCounter = 0;
+let randomChar;
+
+// Generate random characters
+function randomCharGenerator() {
+  randomCharactersCounter++;
+  randomChar = Math.floor(Math.random() * randomCharacters.length);
+  if (randomChar == 36) {
+    randomChar = 35;
+  }
+  if (randomCharactersCounter == 5) {
+    randomCharactersFinish += "-";
+  } else {
+    randomCharactersFinish += randomCharacters.charAt(randomChar);
+  }
+  if (randomCharactersCounter != 9) {
+    randomCharGenerator();
+  } else {
+    randomCharactersElement.setAttribute("aria-label", randomCharactersFinish);
+  }
+}
+
+// Random Characters in element, using typing function
+randomCharGenerator();
+
+let typeRandomCharactersCounter = 0;
+
+function typeRandomCharacters() {
+  if (typeRandomCharactersCounter < randomCharactersFinish.length) {
+    randomCharactersElement.textContent += randomCharactersFinish.charAt(
+      typeRandomCharactersCounter
+    );
+    typeRandomCharactersCounter++;
+    setTimeout(typeRandomCharacters, 500);
+  }
+}
+
+const playLink = document.querySelector("#play-link");
+const gameContent = document.querySelector("#game-content");
+
+playLink.addEventListener("click", function () {
+  gameContent.style.visibility = "visible";
+  gameContent.style.opacity = "1";
+  setTimeout(function() {
+    typeRandomCharacters()
+    header.style.visibility = 'hidden'
+  }, 1000);
+});
