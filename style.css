@@ -25,6 +25,7 @@
 
 body {
   background-color: #000000;
+  overflow-y: hidden;
 }
 
 /* Soundtrack Option Style */
@@ -115,26 +116,26 @@ header {
   font-weight: 400;
   text-align: center;
   letter-spacing: -0.3rem;
-  line-height: 5rem;
+  line-height: 3rem;
 
   font-size: 2.4rem;
 }
 
-@media screen and (min-width: 440px) {
+@media screen and (min-width: 440px) and (min-height: 360px) {
   #game-title {
     font-size: 3.2rem;
     line-height: 5rem;
   }
 }
 
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 550px) and (min-height: 550px) {
   #game-title {
     font-size: 4.4rem;
     line-height: 7rem;
   }
 }
 
-@media screen and (min-width: 860px) {
+@media screen and (min-width: 860px) and (min-height: 560px) {
   #game-title {
     font-size: 5.5rem;
     line-height: 9rem;
@@ -179,7 +180,8 @@ header {
 .back-button {
   cursor: pointer;
   border: none;
-  background-color: var(--color8);
+  z-index: 1;
+  background-color: transparent;
   transition: 0.3s;
 }
 
@@ -243,14 +245,28 @@ header {
 }
 
 #credits #luiz-img {
-  width: 280px;
-  height: 378px;
+  width: 12rem;
+  height: 16.153846153846153rem;
   background-image: url(imgs/img-luiz/img-luiz-small.png);
+  background-repeat: no-repeat;
+  background-size: contain;
 
   position: fixed;
   bottom: 0px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+@media screen and (min-width: 600px) {
+  #credits #luiz-img {
+    width: 25rem;
+    height: 25rem;
+    background-image: url(imgs/img-luiz/img-luiz-large.png);
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-20%, -50%);
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -259,8 +275,8 @@ header {
   }
 
   #credits #luiz-img {
-    width: 600px;
-    height: 600px;
+    width: 37.5rem;
+    height: 37.5rem;
     background-image: url(imgs/img-luiz/img-luiz-large.png);
 
     top: 50%;
@@ -280,7 +296,7 @@ header {
   background-color: var(--color8);
   color: var(--color2);
 
-  position: fixed;
+  position: absolute;
   top: 0;
   height: 100dvh;
   width: 100vw;
@@ -293,44 +309,50 @@ header {
   align-items: center;
 }
 
-#container-content-license {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: justify;
+#container1-content-license {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
 
-  width: 90vw;
+#container2-content-license {
   max-width: 50rem;
   font-size: 0.8rem;
   line-height: 1.15rem;
+  text-align: justify;
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 
-#container-content-license h2 {
-  font-size: 1rem;
+#container2-content-license h2 {
+  font-weight: bold;
 }
 
 @media screen and (min-width: 440px) {
-  #container-content-license {
+  #container2-content-license {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+  #container1-content-license {
+    padding-top: 1.5rem;
   }
 }
 
 @media screen and (min-width: 880px) {
-  #container-content-license {
-    font-size: 1.3rem;
+  #container2-content-license {
+    font-size: 1.2rem;
     line-height: 2rem;
   }
 }
 
-#container-content-license ol {
+#container2-content-license ol {
   padding: 1.5rem;
 }
 
-/* === Game Style === */
+/* === Game Initial Page === */
 
-#game-content {
+#initial-game-page {
   visibility: hidden;
   opacity: 0;
   transition: 0.5s;
@@ -350,13 +372,13 @@ header {
   height: 100dvh;
 }
 
-#game-content p {
+#initial-game-page p {
   font-size: 1.5rem;
   text-align: center;
   color: var(--color2);
 }
 
-#game-content span {
+#initial-game-page span {
   color: var(--color3);
   display: block;
   padding-top: 1rem;
@@ -368,8 +390,29 @@ header {
   }
 }
 
-#game-content svg {
+#initial-game-page svg {
   width: 2.5rem;
   fill: var(--color3);
   animation: 5s rotate-loading-icon infinite linear;
+}
+
+/* === Game Page === */
+
+#game-page {
+  visibility: hidden;
+  width: 100vw;
+  height: 100dvh;
+  position: fixed;
+  top: 0;
+  background-color: var(--color1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#terminal {
+  width: 90vw;
+  max-width: 80rem;
+  height: 90dvh;
+  background-color: var(--color5);
 }

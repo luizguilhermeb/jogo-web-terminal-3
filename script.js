@@ -201,6 +201,8 @@ buttonBackCredits.addEventListener("click", closeCredits);
 
 // === License page ===
 
+const body = document.querySelector('body')
+
 license = document.querySelector("#license");
 licenseLink = document.querySelector("#license-link");
 buttonBackLicense = document.querySelector("#back-button-license");
@@ -212,6 +214,7 @@ function openLicense() {
   header.setAttribute("aria-hidden", "true");
   license.style.visibility = "visible";
   license.style.opacity = "1";
+  body.style.overflowY = 'visible'
 }
 licenseLink.addEventListener("click", openLicense);
 
@@ -224,6 +227,8 @@ function closeLicense() {
   setTimeout(function () {
     license.style.visibility = "hidden";
   }, 500);
+  body.style.overflowY = 'hidden'
+  window.scrollTo(0, 0);
 }
 buttonBackLicense.addEventListener("click", closeLicense);
 
@@ -270,13 +275,13 @@ function typeRandomCharacters() {
 }
 
 const playLink = document.querySelector("#play-link");
-const gameContent = document.querySelector("#game-content");
+const gameContent = document.querySelector("#initial-game-page");
 
 playLink.addEventListener("click", function () {
   gameContent.style.visibility = "visible";
   gameContent.style.opacity = "1";
-  setTimeout(function() {
-    typeRandomCharacters()
-    header.style.visibility = 'hidden'
+  setTimeout(function () {
+    typeRandomCharacters();
+    header.style.visibility = "hidden";
   }, 1000);
 });
