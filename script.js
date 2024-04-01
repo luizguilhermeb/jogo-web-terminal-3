@@ -201,7 +201,7 @@ buttonBackCredits.addEventListener("click", closeCredits);
 
 // === License page ===
 
-const body = document.querySelector('body')
+const body = document.querySelector("body");
 
 license = document.querySelector("#license");
 licenseLink = document.querySelector("#license-link");
@@ -214,7 +214,7 @@ function openLicense() {
   header.setAttribute("aria-hidden", "true");
   license.style.visibility = "visible";
   license.style.opacity = "1";
-  body.style.overflowY = 'visible'
+  body.style.overflowY = "visible";
 }
 licenseLink.addEventListener("click", openLicense);
 
@@ -227,7 +227,7 @@ function closeLicense() {
   setTimeout(function () {
     license.style.visibility = "hidden";
   }, 500);
-  body.style.overflowY = 'hidden'
+  body.style.overflowY = "hidden";
   window.scrollTo(0, 0);
 }
 buttonBackLicense.addEventListener("click", closeLicense);
@@ -270,18 +270,29 @@ function typeRandomCharacters() {
       typeRandomCharactersCounter
     );
     typeRandomCharactersCounter++;
-    setTimeout(typeRandomCharacters, 500);
+    setTimeout(typeRandomCharacters, 900);
   }
 }
 
+// loading animation for click in play-link
+
 const playLink = document.querySelector("#play-link");
-const gameContent = document.querySelector("#initial-game-page");
+const initialGamePage = document.querySelector("#initial-game-page");
+const gamePage = document.querySelector("#game-page");
 
 playLink.addEventListener("click", function () {
-  gameContent.style.visibility = "visible";
-  gameContent.style.opacity = "1";
+  initialGamePage.style.visibility = "visible";
+  initialGamePage.style.opacity = "1";
   setTimeout(function () {
-    typeRandomCharacters();
     header.style.visibility = "hidden";
+    typeRandomCharacters();
   }, 1000);
+  setTimeout(function () {
+    initialGamePage.style.opacity = "0";
+    initialGamePage.style.visibility = "hidden"
+    gamePage.style.visibility = "visible"
+    setTimeout(function() {
+      gamePage.style.opacity = "1"
+    }, 1500)
+  }, 11000);
 });

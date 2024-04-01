@@ -355,7 +355,7 @@ header {
 #initial-game-page {
   visibility: hidden;
   opacity: 0;
-  transition: 0.5s;
+  transition: 1s;
 
   display: flex;
   flex-direction: column;
@@ -400,6 +400,9 @@ header {
 
 #game-page {
   visibility: hidden;
+  opacity: 0;
+  transition: 1s;
+
   width: 100vw;
   height: 100dvh;
   position: fixed;
