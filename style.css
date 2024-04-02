@@ -103,8 +103,8 @@ aside {
 
 header {
   visibility: hidden;
+  transition: 1s;
   height: 100dvh;
-
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

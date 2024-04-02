@@ -20,7 +20,7 @@ function changeSoundtrack() {
   if (soundCounter == 2) {
     soundtrackPlayer.volume = 0.3;
   } else {
-    soundtrackPlayer.volume = 0.5;
+    soundtrackPlayer.volume = 0.4;
   }
 }
 
@@ -68,12 +68,13 @@ let counter = 0;
 function typeWriter() {
   if (counter < gameTitleText.length) {
     gameTitleElement.textContent += gameTitleText.charAt(counter); // Adiciona a caractere refereniada de gameTitleText
+    clickSoundFunction()
     if (gameTitleText.charAt(counter) == "3") {
       // Aplica estilo à caractere '3'
       gameTitleElement.innerHTML = "Terminal <span>3</span>";
     }
     counter++;
-    setTimeout(typeWriter, 700); // Ajuste o tempo para controlar a velocidade de digitação
+    setTimeout(typeWriter, Math.random() * 1500); // Ajuste o tempo para controlar a velocidade de digitação
   }
 }
 
@@ -83,7 +84,7 @@ const soudtrackSection = document.querySelector("#soundtrack-section");
 
 function closeSoundtrackSection() {
   soudtrackSection.style.opacity = "0";
-  setTimeout((soudtrackSection.style.visibility = "hidden"), 1000);
+  soudtrackSection.style.visibility = "hidden"
 }
 
 function enableLinksHome() {
@@ -193,9 +194,7 @@ function closeCredits() {
   });
   header.setAttribute("aria-hidden", "false");
   credits.style.opacity = "0";
-  setTimeout(function () {
-    credits.style.visibility = "hidden";
-  }, 500);
+  credits.style.visibility = "hidden"
 }
 buttonBackCredits.addEventListener("click", closeCredits);
 
@@ -224,9 +223,7 @@ function closeLicense() {
   });
   header.setAttribute("aria-hidden", "false");
   license.style.opacity = "0";
-  setTimeout(function () {
-    license.style.visibility = "hidden";
-  }, 500);
+  license.style.visibility = "hidden";
   body.style.overflowY = "hidden";
   window.scrollTo(0, 0);
 }
@@ -279,14 +276,17 @@ function typeRandomCharacters() {
 const playLink = document.querySelector("#play-link");
 const initialGamePage = document.querySelector("#initial-game-page");
 const gamePage = document.querySelector("#game-page");
+const spatialSound = new Audio("sounds/sound-effects/spatial-click.mp3")
 
 playLink.addEventListener("click", function () {
-  initialGamePage.style.visibility = "visible";
-  initialGamePage.style.opacity = "1";
-  setTimeout(function () {
-    header.style.visibility = "hidden";
-    typeRandomCharacters();
-  }, 1000);
+  spatialSound.play()
+  header.style.opacity = '0'
+  header.style.visibility = 'hidden'
+  setTimeout(function() {
+    initialGamePage.style.visibility = 'visible'
+    initialGamePage.style.opacity = '1'
+    setTimeout(typeRandomCharacters, 500)
+  }, 1500)
   setTimeout(function () {
     initialGamePage.style.opacity = "0";
     initialGamePage.style.visibility = "hidden"
